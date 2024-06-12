@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import 'react-toastify/dist/ReactToastify.css';
+import SingInForm from "./components/auth/SingInForm";
+import SingUpForm from "./components/auth/SingUpForm";
+import AboutProjectForm from "./components/AboutProjectForm";
+import {MyGroupsForm} from "./components/MyGroupsForm";
+import {ToastContainer} from "react-toastify";
+import {ThemeProvider} from "@mui/material/styles";
+import {theme} from "./theme";
+import Routing from "./routes/Routing";
+import GroupMainForm from "./components/GroupMainForm";
+import CategoriesForm from "./components/CategoriesForm";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div>
+
+    <ThemeProvider theme={theme}>
+
+    <ToastContainer
+        position="bottom-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+    />
+      <Routing />
+    </ThemeProvider>
+  </div>
   );
 }
 
